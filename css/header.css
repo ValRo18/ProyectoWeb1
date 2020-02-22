@@ -1,0 +1,19 @@
+html{
+    font-family: sans-serif !important;
+}
+body{
+	
+}
+nav{
+	font-size: 25px !important;
+	height: 100px !important;
+	background-color: rgb(43, 179, 187) !important;
+}
+a{
+	font-size: 25px !important;
+}
+li{
+	padding: 20px !important;
+	height:100px !important;
+}
+

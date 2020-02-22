@@ -1,0 +1,37 @@
+html,
+body {
+    height: 100%;
+    font-family: sans-serif;
+
+   font-size: 25px;
+}
+html {
+    display: table;
+    margin: auto;
+}
+body {
+    display: table-cell;
+    vertical-align: middle;
+    background: #4ECDC4;
+}
+
+#login-page {
+   width: 550px;
+   border-radius: 200px !important; 
+}
+
+.card {
+     position: absolute;
+     left: 50%;
+     top: 50%;
+     -moz-transform: translate(-50%, -50%)
+     -webkit-transform: translate(-50%, -50%)
+     -ms-transform: translate(-50%, -50%)
+     -o-transform: translate(-50%, -50%)
+     transform: translate(-50%, -50%);
+     border-radius: 200px !important;
+}
+a{
+    height: 40px
+    width: 40px;
+}
