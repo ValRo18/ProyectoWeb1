@@ -34,7 +34,7 @@
       	<a href="crear.php" class="list-group-item"> ◉ CREAR</a>
         <a href="perfil.php" class="list-group-item"> ◉ PERFÍL</a>
         <a href="experiencia.php" class="list-group-item"> ◉ EXPERIENCIA</a>
-        <a href="#" class="list-group-item"> ◉ EDUCACIÓN</a>
+        <a href="educacion.php" class="list-group-item"> ◉ EDUCACIÓN</a>
         <a href="#" class="list-group-item"> ◉ HABILIDADES</a>
         <a href="#" class="list-group-item"> ◉ CONOCIMIENTOS</a>
         <a href="#" class="list-group-item"> ◉ PROYECTOS</a>
