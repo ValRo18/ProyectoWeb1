@@ -1,37 +1,58 @@
-html,
-body {
-    height: 100%;
-    font-family: sans-serif;
+body{
+    background: #f1f1f1;
+}
+form{
+    margin-top: 100px;
+    background: #fff;
+    box-shadow: 0px 5px 20px rgb(182,182,182);
+    padding: 30px;
+    border-radius: 20px;
+}
+h1{
+    font-weight: bold;
+    letter-spacing: 8px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    color: #555;
+}
+.ingresar{
+    background: #ffB300;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 8px;
+    padding: 10px;
+    color: #fff;
+    margin-top: 50px;
+}
+.ingresar:hover{
+    background: #efa300;
+    color: #fff;
+}
+.form-control{
 
-   font-size: 25px;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background: none;
+    border: none;
+    border-radius: 0px;
+    border-bottom: solid #555;
 }
-html {
-    display: table;
-    margin: auto;
-}
-body {
-    display: table-cell;
-    vertical-align: middle;
-    background: #4ECDC4;
-}
-
-#login-page {
-   width: 550px;
-   border-radius: 200px !important; 
-}
-
-.card {
-     position: absolute;
-     left: 50%;
-     top: 50%;
-     -moz-transform: translate(-50%, -50%)
-     -webkit-transform: translate(-50%, -50%)
-     -ms-transform: translate(-50%, -50%)
-     -o-transform: translate(-50%, -50%)
-     transform: translate(-50%, -50%);
-     border-radius: 200px !important;
+p{
+    margin-top: 20px;
+    font-size: 18px;
+    text-align:center;
 }
 a{
-    height: 40px
-    width: 40px;
+    color: #4A0498;
+}
+a:hover{
+    color: #6A24b8;
+}
+#error{
+    color: #e00;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 50px;
 }

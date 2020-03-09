@@ -29,6 +29,13 @@ class PgConnection extends DbConnection
 
     public function runStatement($sql, $params = [])
     {
-        return pg_query_params($this->connection, $sql, $params);
+        try{
+
+            return pg_query_params($this->connection, $sql, $params);
+
+        }catch(Exeption $e){
+            throw new Exception($e->getMessage());
+        }
+        
     }
 }

@@ -1,93 +1,74 @@
 <?php
-require_once './shared/header.php';
 require_once './shared/db.php';
 require_once './shared/sessions.php';
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-</head>
+<!DOCTYPE html> 
+ <html>
+ <head>
+ 	<title>Login</title>
+ 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+ 	<link rel="stylesheet" type="text/css" href="css/Login.css">
+ </head>
 <body>
-<div class="container section">
-    <div class="row">
-        <div class="col s12">
-        </div>
-            <div class="slider">
-                <ul class="slides">
 
-                  <li>
-                    <img src="./imgs/1.jpeg" alt="">
-                    <div class="caption center-align">
-                      <h3>vr</h3>
-                      <h5 class="light">rvrb</h5>
-                    </div>
-                  </li>
+  <?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $email = $_POST['email'] ?? '';
+        $password = $_POST['password'] ?? '';
+        $errors = '';
+        try{
+        	$results = $usr_model->login($email, $password);
+        }catch(Exeption $e){
+                $errors =$e->getMessage();
+        }
+        if ($results) {
+            $_SESSION['user_id'] = $results[0]['id'];
+            $_SESSION['user_email'] = $results[0]['email'];
+            $_SESSION['user_name'] = $results[0]['nombre'];
+            header('Location: /crear.php');
+            exit();
+        } elseif ($email != '' || $password != '') {
+            $errors = 'Las credenciales no coinciden con ninguna cuenta';
+        }else{
+        	$errors ='Debe digitar unas credenciales validas';
+        }
+        if($errors!=''){?>
+            <p id="error"><?=$errors?></p>
+    <?php  }
+    }
+ ?>
+ <div class="container">
+ 	
+ 	<div class ="row justify-content-center pt-5 mt-5 mr-1">
+    	<div class="col-md-8">
+    		<form method="POST" action="/">
+    			
+    			<div class="form-group text-center">
+    				<h1>INICIAR SESIÓN</h1>
+    			</div>
+    			<div class="from-group mx-sm-4">
+    				<input type="text" class="form-control" name="email" placeholder="CORREO ELECTRÓNICO">
+    			</div>
+    			<div class="from-group mx-sm-4">
+    				<input type="password" class="form-control" name="password" placeholder="CONTRASEÑA">
+    			</div>
+    			<div class="form-group mx-sm-4">
+    				<input type="submit" class="btn btn-block ingresar" value="INGRESAR">
+    			</div>
+    			<div class="form-group mx-sm-4">
+    				<p>¿No tienes una cuenta? <a href="register.php">Registrate</a></p>
+    			</div>
 
-                  <li>
-                    <img src="./imgs/2.jpg" alt="">
-                    <div class="caption center-align">
-                      <h3>Dogs</h3>
-                      <h5 class="light">The most cute dogs</h5>
-                    </div>
-                  </li>
+    		</form>
+    		
+    		
+    	</div>
 
-
-                  <li>
-                    <img src="./imgs/3.jpg" alt="">
-                    <div class="caption center-align">s
-                      <h3>Dogs</h3>
-                      <h5 class="light">The most cute dogs</h5>
-                    </div>
-                  </li>
-
-                  <li>
-                    <img src="./imgs/4.jpeg" alt="">
-                    <div class="caption center-align">
-                      <h3>Dogs</h3>
-                      <h5 class="light">The most cute dogs</h5>
-                    </div>
-                  </li>
-                <
-                </ul>
-
-              </div>
     </div>
-</div>
-</body>
 
-
-
-
-
-
-<script 
-src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
-</script>
-            
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.slider');
-    var instances = M.Slider.init(elems,{
-        indicatation:false,
-        heigth:600,
-        interval:3000,
-      
-    });
-  });
-
-
-</script>
-<style>
-body{
-    background-color: rgb(243, 243, 200);
-}
-
-</style>
-
-</body>
-</html>
+ </div>
+    
+ 
+ </body>
+ </html>
 

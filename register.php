@@ -1,74 +1,129 @@
 <?php
-
 require_once './shared/db.php';
 ?><!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./Registro.css">
-    <title>Register</title>
+    
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/Registro.css">
+    <title>Registro</title>
 </head>
 
 <body>
-
-<?php
+    <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $firstname = $_POST['firstname'] ?? '';
-        $lastname = $_POST['lastname'] ?? '';
-
-        $id = $_POST['id'] ?? '';
+        $nombre = $_POST['nombre'] ?? '';
+        $apellidos = $_POST['apellidos'] ?? '';
+        $cedula= $_POST['cedula'] ?? 1;
         $email = $_POST['email'] ?? '';
-        $age = $_POST['age'] ?? '';
-        $phone = $_POST['phone'] ?? '';
-        $birthday = $_POST['dayB'] ?? '';
-        if($_POST['gender'] == 'male'){
-            $gender = 'Male';
-        } 
-        else{
-            $gender = 'Female';
-        }     
+        $fechaNacimiento = $_POST['fechanacimiento'] ?? '';
         $password = $_POST['password'] ?? '';
+        $repassword = $_POST['repassword'] ?? '';
+        $descripcion = $_POST['descripcion'] ?? '';
+        $puesto = $_POST['puesto'] ?? '';
+        $direccion= $_POST['direccion'] ?? '';
+        $telefono = $_POST['telefono'] ?? '';
+        $sitioweb = $_POST['web'] ?? '';
+        $github = $_POST['git'] ?? '';
         $errors = '';
-        $sql = "INSERT INTO users(name, lastname, ced, email, age, phone, dayb, sex, password) VALUES ($1,$2,$3,$4,$5,$6,$7,$8 md5($9))";
-        $con->runStatement($sql, [$firstname,$lastname,$id,$email,$age,$phone,$birthday,$gender,$password]);
-        header('Location: /Pricipal.php');
-        exit();
+        if($email!=''||$password!=''){
+            if($password==$repassword){
+            try{
+                $usr_model->crear($nombre,$apellidos,$cedula,$email,$fechaNacimiento,$password,$descripcion,$puesto,$direccion,$telefono,$sitioweb,$github);
+            header('Location: /index.php');
+            exit();
+            }catch(Exeption $e){
+                $errors =$e->getMessage();
+            }
+            
+            }else{
+                $errors = 'Las contraseñas no coinciden';
+            }
+        }else{
+            $errors = 'Debe digitar los espacios requeridos';
+        }
+        if($errors!=''){?>
+            <p id="error"><?=$errors?></p>
+    <?php  }
     }
  ?>
+
+
     <div class="container">
-        <div class="form__top">
+        <div class ="row justify-content-center pt-5 mt-5 mr-1">
+        <div class="col-md-12">
+            <form method="POST" action="/register.php">
+                
+                <div class="form-group text-center">
+                    <h1>REGISTRO</h1>
+                </div>
+                <div class="from-group mx-sm-4">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre" required>
+                </div>
+                <div class="from-group mx-sm-4">
+                    <label for="apellidos">Apellidos:</label>
+                    <input type="text" class="form-control" name="apellidos" id="apellidos" required>
+                </div>
+                <div class="from-group mx-sm-4">
+                    <label for="cedula">Numero de ID (Cédula):</label>
+                    <input type="number" class="form-control" name="cedula" id="cedula" required>
+                </div>
+                <div class="from-group mx-sm-4">
+                    <label for="email">Correo electrónico:</label>
+                    <input type="text" class="form-control" name="email" id="email" required>
+                </div>
+                <div class="from-group mx-sm-4">
+                    <label for="fechanacimiento">Fecha de nacimiento:</label>
+                    <input type="date" class="form-control" name="fechanacimiento" id="fechanacimiento" required>
+                </div>
+                <div class="from-group mx-sm-4">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" class="form-control" name="password" id="password" required>
+                </div>
+                <div class="from-group mx-sm-4">
+                    <label for="repassword">Repetir contraseña:</label>
+                    <input type="password" class="form-control" name="repassword" id="repassword" required>
+                </div>
+                <div class="from-group mx-sm-4">
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" name="descripcion" class="form-control"></textarea>
+                </div>
+                <div class="from-group mx-sm-4">
+                    <label for="puesto">Puesto:</label>
+                    <input type="text" class="form-control" name="puesto" id="puesto">
+                </div>
+                <div class="from-group mx-sm-4">
+                    <label for="direccion">Direccion:</label>
+                    <input type="text" class="form-control" name="direccion" id="direccion">
+                </div>
+                <div class="from-group mx-sm-4">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="number" class="form-control" name="telefono" id="telefono">
+                </div>
+                <div class="from-group mx-sm-4">
+                    <label for="web">Sitio web:</label>
+                    <input type="text" class="form-control" name="web" id="web">
+                </div>
+                <div class="from-group mx-sm-4">
+                    <label for="git">Cuenta de GitHub:</label>
+                    <input type="text" class="form-control" name="git" id="git">
+                </div>
+                <div class="form-group mx-sm-4">
+                    <input type="submit" class="btn btn-block ingresar" value="GUARDAR">
+                </div>
+                <div class="form-group mx-sm-4">
+                    <p>¿Ya tienes una cuenta? <a href="index.php">Inicia Sesión</a></p>
+                </div>
+
+            </form>
+            
+            
         </div>
-        <form class="POST" action="">
-            <label for="firname">First Name</label>
-            <input  id = "firstname" class="input" type="text" placeholder="&#128100;  Name" required autofocus>
-            <label for="latname">Last Name</label>
-            <input  id = "lastname" class="input" type="text" placeholder="&#128100;  Last Name" required>
-            <label for="idd">ID</label>
-            <input  id = "id" class="input" type="text" placeholder="ID" required>
-            <label for="ema">Email</label>
-            <input  id = "email"class=   "input" type="text" placeholder=" Email" required>
-            <label for="ame">Age</label>
-            <input  id ="age" type="number" placeholder="Age">
-            <label for="telepho">Phone</label>
-            <input id = "phone" class="input" type="text" placeholder="Phone Number" required>
-            <label for="birthday">Birthday</label>
-            <input id="dayB"type="date"> 
-            <input type="radio" id="male" name="gender" value="male">
-            <label for="male">Male</label><br>
-            <input type="radio" id="female" name="gender" value="female">
-            <label for="female">Female</label><br>
-            <label for="pasw">Password</label>
-            <input  id = "password"class="input" type="password" placeholder="&#x1F511;  Password" required>
-            <div class="btn__form">
-                <input class="btn__submit" type="submit"  value="REGISTER">
-            </div>
-        </form>
+
+    </div>
     </div>
 
 </body>
-<script 
-src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
-</script>
-
 </html>
