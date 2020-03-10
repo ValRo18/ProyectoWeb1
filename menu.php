@@ -35,11 +35,11 @@
         <a href="perfil.php" class="list-group-item"> ◉ PERFÍL</a>
         <a href="experiencia.php" class="list-group-item"> ◉ EXPERIENCIA</a>
         <a href="educacion.php" class="list-group-item"> ◉ EDUCACIÓN</a>
-        <a href="#" class="list-group-item"> ◉ HABILIDADES</a>
-        <a href="#" class="list-group-item"> ◉ CONOCIMIENTOS</a>
-        <a href="#" class="list-group-item"> ◉ PROYECTOS</a>
-        <a href="#" class="list-group-item"> ◉ HOBBIES</a>
-        <a href="#" class="list-group-item"> ◉ CONTRIBUCIONES</a>
+        <a href="habilidades.php" class="list-group-item"> ◉ HABILIDADES</a>
+        <a href="conocimientos.php" class="list-group-item"> ◉ CONOCIMIENTOS</a>
+        <a href="proyectos.php" class="list-group-item"> ◉ PROYECTOS</a>
+        <a href="hobbies.php" class="list-group-item"> ◉ HOBBIES</a>
+        <a href="contribuciones.php" class="list-group-item"> ◉ CONTRIBUCIONES</a>
       </div>
     </div>
 
