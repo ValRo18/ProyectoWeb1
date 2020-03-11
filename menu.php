@@ -1,6 +1,6 @@
 <?php 
-	require_once 'shared/guard.php';
-	require_once 'shared/db.php';
+	require_once './shared/guard.php';
+	require_once './shared/db.php';
 
 	$user=$usr_model->read($_SESSION['user_id']);
 	$imgdir=$user[0]['foto'];

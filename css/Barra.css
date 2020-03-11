@@ -1,0 +1,30 @@
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #303440;
+  height: 50px;
+  box-shadow: 0px 3px 20px #678;
+}
+
+.navbar li {
+  float: right;
+}
+
+.btn-download,.btn-send{
+  background: #303440;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+
+}
+
+.btn-download:hover,.btn-send:hover {
+  background-color: #222632;
+  text-decoration: none;
+}

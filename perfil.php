@@ -22,6 +22,11 @@
         	$ruta="imgs/profile_imgs";
         	$archivo=$_FILES['imagen']['tmp_name'];
         	$nombreArchivo=$_FILES['imagen']['name'];
+            $arrayNombre=explode(".",$nombreArchivo);
+            $extension=end($arrayNombre);
+            if($extension){
+                $nombreArchivo=$_SESSION['user_id'].".".$extension;
+            }
         	$ruta=$ruta."/".$nombreArchivo;
         	move_uploaded_file($archivo, $ruta);
         	$foto=$ruta;

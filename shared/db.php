@@ -1,14 +1,14 @@
 <?php
-require_once './models/usuario.php';
-require_once './models/exp_model.php';
-require_once './models/edu_model.php';
-require_once './models/con_model.php';
-require_once './models/pro_model.php';
-require_once './models/hob_model.php';
-require_once './models/hab_model.php';
-require_once './models/cont_model.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/models/usuario.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/models/exp_model.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/models/edu_model.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/models/con_model.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/models/pro_model.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/models/hob_model.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/models/hab_model.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/models/cont_model.php';
 
-require_once 'vendor/autoload.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 
 use crojasaragonez\UtnDb\PgConnection;
 

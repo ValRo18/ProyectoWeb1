@@ -11,12 +11,20 @@ class ComposerStaticInitea96223385eeb368da7243fe6661aa2a
         array (
             'crojasaragonez\\UtnDb\\' => 21,
         ),
+        'P' => 
+        array (
+            'PHPMailer\\PHPMailer\\' => 20,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'crojasaragonez\\UtnDb\\' => 
         array (
             0 => __DIR__ . '/..' . '/crojasaragonez/utn-db/src',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
     );
 

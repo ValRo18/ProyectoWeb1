@@ -16,7 +16,7 @@ h1{
     color: #555;
 }
 .ingresar{
-    background: #ffB300;
+    background: #04d;
     border-radius: 50px;
     font-size: 20px;
     font-weight: bold;
@@ -26,7 +26,7 @@ h1{
     margin-top: 50px;
 }
 .ingresar:hover{
-    background: #efa300;
+    background: #03c;
     color: #fff;
 }
 .form-control{
